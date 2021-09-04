@@ -1,0 +1,66 @@
+{% comment %} Get companies from entries {% endcomment %}
+{% assign grouplist = works_by_order | map: include.group_by | uniq %}
+
+{% assign grouplist_sorted = '' | split: '' %}
+
+{% for groupitem in grouplist %}
+    {% if groupitem != null and groupitem != "" %}
+        {% assign grouplist_sorted = grouplist_sorted | push: groupitem %}
+    {% endif %}
+{% endfor %}
+{% assign grouplist_sorted = grouplist_sorted | push: '' %}
+
+{% for groupitem in grouplist_sorted %}
+    {% assign lastgroup = null %}
+    <div class="sort-by-list">
+        {% assign works_by_group = works_by_order | where: include.group_by, groupitem %}
+        {% for project in works_by_group %}
+            {% comment %}
+                ♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️
+                Esto es un comentario aunque no lo parezca y lo de abajo es para poner una puta coma
+                ♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️
+            {% endcomment %}
+            {% assign disciplinesHTML = "" %}
+            {% for discipline in project.disciplines %}
+                {% if disciplinesHTML == "" %}
+                    {% assign disciplinesHTML = disciplinesHTML | append: discipline %}
+                {% else %}
+                    {% assign disciplinesHTML = disciplinesHTML | append: ' ' | append: discipline %}
+                {% endif %}
+            {% endfor %}
+            {% comment %}
+                ♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️
+                Esto es un comentario aunque no lo parezca y lo de abajo es para poner otra puta coma
+                ♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️
+            {% endcomment %}
+            {% assign tagsHTML = "" %}
+            {% for tag in project.tags %}
+                {% if tagsHTML == "" %}
+                    {% assign tagsHTML = tagsHTML | append: tag %}
+                {% else %}
+                    {% assign tagsHTML = tagsHTML | append: ' ' | append: tag %}
+                {% endif %}
+            {% endfor %}
+            <a      href="{{ project.url }}"
+                    title="{{ project.title }}"
+                    class="sort-by-link"
+                    data-disciplines="{{ disciplinesHTML }}"
+                    data-tags="{{ tagsHTML }}">
+                {% if lastgroup == null %}
+                    {% if groupitem == null or groupitem == "" %}
+                        <h3 class="sort-by-groupname">Case Study</h3>
+                    {% else %}
+                        <h3 class="sort-by-groupname">{{ groupitem }}</h3>
+                    {% endif %}
+                    {% assign lastgroup = groupitem %}
+                {% else %}
+                    <h3 class="sort-by-groupname"></h3>
+                    {% assign lastgroup = groupitem %}
+                {% endif %}
+                <div class="sort-by-wrap">
+                    <hr class="sort-by-hr"><span class="sort-by-entry">{{ project.title }}</span>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endfor %}

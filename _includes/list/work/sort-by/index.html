@@ -1,0 +1,28 @@
+{% comment %} Defining entry grouping criteria {% endcomment %}
+{% assign works = site.work | sort_natural: include.order_by %}
+
+{% comment %} Choosing entry desired order {% endcomment %}
+{% case include.sort_order %}
+    {% when 'asc' %}
+        {% assign works = works %}
+    {% when 'desc' %}
+        {% assign works = works | reverse %}
+{% endcase %}
+
+{% comment %} Get years from entries {% endcomment %}
+{% assign orderlist = works | map: include.order_by | uniq %}
+
+{% comment %} html snippet {% endcomment %}
+<div class="sort-by-main full-width">
+    {% for orderitem in orderlist %}
+        <div class="sort-by-group">
+            <h3 class="sort-by-order">{{ orderitem }}</h3>
+            <div class="sort-by-content">
+                {% assign works_by_order = works | where: include.order_by, orderitem %}
+                {% include list/work/sort-by/group.html %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% comment %} group_by="company" order_by="year" sort_order="desc" {% endcomment %}

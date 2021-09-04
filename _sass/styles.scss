@@ -1,0 +1,83 @@
+.louis {
+    margin-bottom: 4em; //pending louis
+    width: 85%;
+    max-width: 32em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 1%;
+    color: var(--midnightgray);
+    font-size: 20px;
+    letter-spacing: var(--spacing1em);
+    line-height: 160%;
+    font-weight: 500;
+}
+body {
+    font-family: var(--linear); //pending scss
+    font-weight: 500;
+    font-size: calc(var(--body)*1.125);
+    letter-spacing: var(--spacing1em);
+    line-height:var(--bodyleading);
+    color: var(--textcolor);
+    font-variant-numeric: oldstyle-nums; 
+    background-color: var(--bgcolor);
+    text-decoration-skip-ink: auto;
+}
+.full-width { //pending scss
+    width: 85%;
+    max-width: 32em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 1%;
+}
+::selection{
+    color: var(--black);
+    background-color: var(--linkcolor);
+}
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+a {
+    color: var(--linkcolor);
+    text-decoration-color: transparent; //pending scss
+    text-underline-offset: 2px;
+    text-decoration-thickness: 2px;
+
+    &::selection {
+        color: var(--bgcolor);
+    }
+
+    &:active {
+        color: var(--textcolor);
+    }
+
+    &:hover {
+        cursor: pointer;
+        text-decoration-color: rgba(60, 179, 114, 0.7); //pending scss
+
+        &:active {
+            color: var(--textcolor);
+        }
+    }
+
+    &:visited {
+        color: var(--linkcolor);
+
+        &:hover {
+            color: var(--linkcolor);
+        
+            &:active {
+                color: var(--textcolor);
+            }
+        }
+    }
+}
+b, strong {
+    font-weight: 800; //pending scss
+    letter-spacing: var(--spacing2em);;
+    color: var(--midnightgray);
+}

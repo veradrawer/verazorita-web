@@ -1,0 +1,53 @@
+{% comment %} //// LOGIC //// {% endcomment %}
+
+{% comment %} Get collection from defined group {% endcomment %}
+{% assign currentgrouping = project.[include.group_by] %}
+{% assign currentordering = project.[include.order_by] %}
+
+{% comment %} Date formatting {% endcomment %}
+{% if include.group_by == 'year' %}
+  {% assign currentgrouping = project.date | date: "%Y" %}
+{% endif %}
+{% if include.order_by == 'year' %}
+  {% assign currentordering = project.date | date: "%Y" %}
+{% endif %}
+
+{% comment %} Default value for undefined groups {% endcomment %}
+{% if currentgrouping == null %}
+  {% assign currentgrouping = 'Other' %}
+{% endif %}
+
+{% if currentordering != previoussort %}
+  {% assign currentordering_display = currentordering %}
+  {% assign previoussort = currentordering %}
+{% else %}
+  {% assign currentordering_display = '' %}
+{% endif %}
+
+
+{% comment %} //// HTML //// {% endcomment %}
+
+<div class="sort-by-group">
+  {% comment %} Create html listing from defined group {% endcomment %}
+  {% if currentgrouping != previousgroup %}
+  <h3 class="sort-by-order">{{ currentordering_display }}</h3>
+  <div class="sort-by-content">
+    <div class="sort-by-list">
+        <a class="sort-by-link">
+            <h3 class="sort-by-groupname">Staddium</h3>
+            <div class="sort-by-wrap">
+                <hr class="sort-by-hr"><span class="sort-by-entry">Mapping the Magic Circle</span>
+            </div>
+        </a>
+    </div>
+  </div>
+
+  {% assign kitchen_products = products | where: "type", "kitchen" %}
+
+    <li id="y{{currentgrouping}}">{{ currentgrouping }}</li>
+      {% assign previousgroup = currentgrouping %}
+    {% endif %}
+
+  {% comment %} List entries {% endcomment %}
+  <li>{% include list/work/sort-by/entry.html %}</li>
+</div>

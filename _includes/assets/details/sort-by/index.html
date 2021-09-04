@@ -1,0 +1,66 @@
+<div class="sort-content noselect">
+    <div class="sort-content-column padded">
+        <ul class="sort-content-ul">
+            <li id="all" name="all" class="sort-content-li category-selected" onclick="catOnClick(event)">
+                All selected work
+            </li>
+        </ul>
+    </div>
+    <div class="sort-content-column">
+        <ul class="sort-content-ul">
+            <li id="design-research" name="disciplines" class="sort-content-li" onclick="catOnClick(event)">
+                Design Research
+            </li>
+            <li id="design-craft" name="disciplines" class="sort-content-li" onclick="catOnClick(event)">
+                Design as Craft
+            </li>
+            <li id="game-design" name="disciplines" class="sort-content-li" onclick="catOnClick(event)">
+                Game Design
+            </li>
+            <li id="service-design" name="disciplines" class="sort-content-li" onclick="catOnClick(event)">
+                Service Design
+            </li>
+        </ul>
+    </div>
+    <div class="sort-content-column">
+        <ul class="sort-content-ul sort-content-tags">
+            <li id="brand" name="tags" class="sort-content-li" onclick="catOnClick(event)">
+                Brand
+            </li>
+            <li id="community" name="tags" class="sort-content-li" onclick="catOnClick(event)">
+                Community
+            </li>
+            <li id="education" name="tags" class="sort-content-li" onclick="catOnClick(event)">
+                Education
+            </li>
+            <li id="esports" name="tags" class="sort-content-li" onclick="catOnClick(event)">
+                Esports
+            </li>
+            <li id="field-stories" name="tags" class="sort-content-li" onclick="catOnClick(event)">
+                Field stories
+            </li>
+            <li id="finctech" name="tags" class="sort-content-li" onclick="catOnClick(event)">
+                Fintech
+            </li>
+            <li id="gastronomy" name="tags" class="sort-content-li" onclick="catOnClick(event)">
+                Gastronomy
+            </li>
+            <li id="healthcare" name="tags" class="sort-content-li" onclick="catOnClick(event)">
+                Healthcare
+            </li>
+            <li id="legal" name="tags" class="sort-content-li" onclick="catOnClick(event)">
+                Legal
+            </li>
+            <li id="mapping" name="tags" class="sort-content-li" onclick="catOnClick(event)">
+                Mapping
+            </li>
+            <li id="workshops" name="tags" class="sort-content-li" onclick="catOnClick(event)">
+                Workshops
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% for tag in site.tags  %}
+    test
+{% endfor %}

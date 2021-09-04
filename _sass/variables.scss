@@ -1,0 +1,69 @@
+:root {
+    //Viewports
+    --mobile: 320px;
+    --tablet: 738px;
+    --halfscreen: 960px;
+    --desktop: 1024px;
+    --lgdesktop: 1280px;
+    --xlgdesktop: 1440px;
+
+    //Vars for liquid-type.scss
+    --min: var(--mobile);
+    --max: var(--xlgdesktop);
+    --prefered: var(--lgdesktop);
+
+    //Palette
+    --black: #000000;
+    --midnightpurple: #282534;
+    --midnightgray: #3D3A47;
+    --lightgray: #f2f2f2;
+    --sandgray: #F6F6EC;
+    --sandwhite: #F8F8F6;
+    --white: #ffffff;  
+    --mediumseagreen: #3CB371;
+    --lightseagreen: #0ECCAA;
+    --inkblue: #4770FD;
+    --highlighyellow: #FFCA31;
+    --warmred: #DB5441;
+
+    //Visual Styles
+    --textcolor: var(--midnightpurple);
+    --bgcolor: var(--sandwhite);
+    --linkcolor: var(--mediumseagreen);   
+    --textdotted: 1px dotted var(--textcolor);
+    --textsolid:  1px solid var(--textaycolor);
+    --linkdotted: 1px dotted var(--linkcolor);
+    --linksolid:  1px solid var(--linkcolor);
+
+    //Typography
+    --linear: "Karla", var(--monospace), sans-serif;
+    --serif: "Source Serif 4 Caption", var(--monospace), serif;
+    --monospace: "ISO v0.8", monospace;
+
+    //Type Scale
+    --body:    1rem;
+    --caption: 0.833rem;
+    --subhead: 1.25em;
+    --head:    2em;
+    --display: 1.3em;
+    --magnum:  1.625em;
+    --super:   2.625em;
+
+    //Line Heights
+    --bodyleading:    1.6;
+    --captionleading: 1.4;
+    --subheadleading: 1.3;
+    --headleading:    1.1;
+    --displayleading: 1.3;
+    --magnumleading:  1.23;
+    --superleading:   1;
+
+    //Letter Spacing
+    --spacing0em: -0.006em;
+    --spacing1em: -0.016em;
+    --spacing2em: -0.024em;
+    --spacing3em: -0.030em;
+    --spacing4em: -0.046em;
+    --spacing5em: -0.056em;
+
+}

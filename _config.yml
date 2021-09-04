@@ -1,7 +1,7 @@
 # Where things are
 source              : .
 destination         : ./_site
-collections_dir     : .
+#collections_dir    : .        # defining a route crashes exporting
 plugins_dir         : _plugins # takes an array of strings and loads plugins in that order
 layouts_dir         : _layouts
 data_dir            : _data
@@ -9,20 +9,25 @@ includes_dir        : _includes
 sass:
   sass_dir: _sass
 collections:
-  posts:
+  work:
     output          : true
+    permalink       : /:collection/:path
 
 # Handling Reading
 safe                : false
 include             : [".htaccess"]
-exclude             : ["Gemfile", "Gemfile.lock", "README.md"]
+exclude:
+-  "Gemfile"
+-  "Gemfile.lock"
+-  "README.md"
+-  "*/ext/*"
 keep_files          : [".git", ".svn"]
 encoding            : "utf-8"
 markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
-strict_front_matter : false
+strict_front_matter : true
 
 # Filtering Content
-show_drafts         : null
+show_drafts         : false
 limit_posts         : 0
 future              : false
 unpublished         : false
@@ -46,26 +51,27 @@ baseurl             : "" # does not include hostname
 show_dir_listing    : false
 
 # Outputting
-permalink           : date
+permalink           : pretty
 paginate_path       : /page:num
-timezone            : null
+#timezone           : null #requieres a plugin for succesful compiling
 
-quiet               : false
-verbose             : false
-defaults            : []
+#quiet               : false
+#verbose             : false
+#defaults            : []
 
-liquid:
-  error_mode        : warn
-  strict_filters    : false
-  strict_variables  : false
+#liquid:
+# error_mode        : warn
+#  strict_filters   : false
+#  strict_variables : false
 
 # Markdown Processors
-kramdown:
-  auto_ids          : true
-  entity_output     : as_char
-  toc_levels        : [1, 2, 3, 4, 5, 6]
-  smart_quotes      : lsquo,rsquo,ldquo,rdquo
-  input             : GFM
-  hard_wrap         : false
-  footnote_nr       : 1
-  show_warnings     : false
+#kramdown:
+# auto_ids          : true
+# entity_output     : as_char
+# toc_levels        : 1,2,3,4,5,6
+# smart_quotes      : lsquo,rsquo,ldquo,rdquo
+# input             : GFM
+# hard_wrap         : false
+# footnote_nr       : 1
+# show_warnings     : false
+  
