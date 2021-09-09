@@ -42,6 +42,7 @@ function catOnClick(event) {
             document.getElementById("all").className += " category-selected";
         }
     }
+    toggleItemsVisibility();
 }
 
 function resetCategories(target) {
@@ -77,4 +78,33 @@ function anyCategoriesSelected() {
         }
     }
     return anyCategoriesSelected;
+}
+// Luis dice que lo siente mucho por lo que toca hacer ahora.
+// Reemplazar el selector del a por uno al div con clase sort-by-wrap
+// y que eliminar las del año va a ser un problema porque se queda de residuo.
+// Habrá que hacer que cuando termines de togglear las entradas tendrás que inespeccionar
+// los elementos o quizás la lista para luego elegir si borrar el año o no:
+// Si hay entradas mostradas de un año que no se borre el año, y que si no hay, que sí se borre.
+// Y con eso ya estaría el sort. Que F. —Louis 2021/09/09 21:43 CEST
+function toggleItemsVisibility () {
+    for (var i = 0; i < document.getElementsByName("disciplines").length; i++) {
+        var discipline = document.getElementsByName("disciplines")[i];
+        if (document.querySelector('a[data-disciplines*='+discipline.id+']') != null) {
+            if (categories[(discipline.getAttribute("name"))][(discipline.id)]) {
+                document.querySelector('a[data-disciplines*='+discipline.id+']').style = "display:none";
+            } else {
+                document.querySelector('a[data-disciplines*='+discipline.id+']').style = "display:inline";
+            }
+        }
+    }
+    for (var i = 0; i < document.getElementsByName("tags").length; i++) {
+        var tag = document.getElementsByName("tags")[i];
+        if (document.querySelector('a[data-tags*='+tag.id+']') != null) {
+            if (categories[(tag.getAttribute("name"))][(tag.id)]) {
+                document.querySelector('a[data-tags*='+tag.id+']').style = "display:none";
+            } else {
+                document.querySelector('a[data-tags*='+tag.id+']').style = "display:inline";
+            }
+        }
+    }
 }
