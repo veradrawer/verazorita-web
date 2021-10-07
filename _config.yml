@@ -12,6 +12,12 @@ collections:
   work:
     output          : true
     permalink       : /:collection/:path
+  es:
+    output          : true
+    permalink       : /:collection/:path
+  en:
+    output          : true
+    permalink       : /:collection/:path
 
 # Handling Reading
 safe                : false
