@@ -1,2 +1,0 @@
-
-asset.md loaded

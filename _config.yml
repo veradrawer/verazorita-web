@@ -9,9 +9,6 @@ includes_dir        : _includes
 sass:
   sass_dir: _sass
 collections:
-  work:
-    output          : true
-    permalink       : /:collection/:path
   es:
     output          : true
     permalink       : /:collection/:path
@@ -28,7 +25,7 @@ exclude:
 -  "README.md"
 -  "*/ext/*"
 keep_files          : [".git", ".svn"]
-encoding            : "utf-8"
+encoding            : "UTF-8"
 markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
 strict_front_matter : true
 
