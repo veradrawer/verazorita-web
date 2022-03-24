@@ -1,0 +1,15 @@
+$home:
+  en: "Home"
+  es: "Inicio"
+$toggleLang:
+  en: "Leer en castellano"
+  es: "Read it in English"
+$about:
+  en: "About"
+  es: "Acerca de"
+$work:
+  en: "Work"
+  es: "Trabajo"
+$contact:
+  en: "Contact"
+  es: "Contacto"

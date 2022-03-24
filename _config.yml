@@ -9,9 +9,6 @@ includes_dir        : _includes
 sass:
   sass_dir: _sass
 collections:
-  work:
-    output          : true
-    permalink       : /:collection/:path
   es:
     output          : true
     permalink       : /:collection/:path
