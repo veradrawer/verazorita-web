@@ -1,8 +1,13 @@
+---
+---
+
 var categories = {
     all: {
         'all': true
     },
-    disciplines: {
+    {{ site.tags }}
+    {{ "disciplines: {"}}
+    {{ "'" | append: site.posts[0].discipline[0] | append: "'" }}: false,
         'design-research': false,
         'service-design': false,
         'design-craft': false,
@@ -24,6 +29,9 @@ var categories = {
 };
 
 function catOnClick(event) {
+    // CLICK
+    // console.log({{site.posts[0].tags[0]}});
+    // CLICK
     if (event.target.id !== 'all'
             || !categories[(event.target.getAttribute("name"))][(event.target.id)]) {
         categories[(event.target.getAttribute("name"))][(event.target.id)] =
