@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: initial;
 
-    @media screen and (max-width: 960px ) { //mixin required
+    @media screen and (max-width: 768px ) { //mixin required
         flex-direction: column;
     }
 
@@ -32,7 +32,7 @@
     text-align: right;
     font-variant-numeric: tabular-nums;
 
-    @media screen and (max-width: 960px ) { //mixin required
+    @media screen and (max-width: 768px ) { //mixin required
         display: block;
         position: static;
         width: 100%;
