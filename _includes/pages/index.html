@@ -3,3 +3,7 @@
 Hello world
 
 {{ site.data.languages[page.lang].label }}
+
+{% for entry in site.posts %}
+    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+{% endfor %}
